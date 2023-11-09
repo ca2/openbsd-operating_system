@@ -1,0 +1,12 @@
+
+
+message(STATUS "tolower_cmake_build_type = ${tolower_cmake_build_type}")
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "OpenBSD")
+
+    include(operating_system/operating_system-openbsd/_.cmake)
+
+endif()
+
+
+
