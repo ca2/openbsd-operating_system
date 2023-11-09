@@ -27,5 +27,4 @@ solution.vc.db*
 Thumbs.db
 CMakeCache.txt
 Makefile
-*.cmake
 *.a
