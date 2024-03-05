@@ -39,7 +39,9 @@ endif()
 
 
 add_subdirectory(operating_system-posix/write_text_pango)
+if(${HAS_ALSA})
 add_subdirectory(operating_system-posix/audio_alsa)
+endif()
 #add_subdirectory(operating_system-openbsd/audio_mixer_alsa)
 #add_subdirectory(operating_system-openbsd/music_midi_alsa)
 
