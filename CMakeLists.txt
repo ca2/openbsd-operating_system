@@ -51,17 +51,49 @@ elseif(${HAS_GTK3})
     add_subdirectory(operating_system-posix/windowing_gtk3)
     add_subdirectory(operating_system-posix/node_gtk3)
     add_subdirectory(operating_system-openbsd/operating_ambient_gtk3)
-endif()
+else()
     #add_subdirectory(operating_system-posix/node_gtk_based)
     #add_subdirectory(operating_system-openbsd/desktop_environment_gtk_based)
 endif()
-if(KDE_DESKTOP)
-    add_subdirectory(operating_system-posix/windowing_x11)
-    add_subdirectory(operating_system-posix/windowing_xcb)
-    add_subdirectory(operating_system-posix/node_kde)
-    add_subdirectory(operating_system-openbsd/desktop_environment_kde)
-endif()
 
+elseif(${KDE_DESKTOP})
+
+	add_subdirectory(operating_system-posix/nano_graphics_cairo)
+    add_subdirectory(operating_system-posix/acme_windowing_q)
+    add_subdirectory(operating_system-posix/windowing_posix)
+    add_subdirectory(operating_system-posix/innate_ui_q)
+    add_subdirectory(operating_system-posix/windowing_q)
+    add_subdirectory(operating_system-posix/node_q)
+    
+	if(${HAS_KDE6})
+	
+		add_subdirectory(operating_system-posix/acme_windowing_q6)
+		add_subdirectory(operating_system-posix/acme_windowing_kde6)
+		add_subdirectory(operating_system-posix/innate_ui_q6)
+		add_subdirectory(operating_system-posix/innate_ui_kde6)
+		add_subdirectory(operating_system-posix/windowing_q6)
+		add_subdirectory(operating_system-posix/windowing_kde6)
+		add_subdirectory(operating_system-posix/node_kde6)
+		add_subdirectory(operating_system-openbsd/operating_ambient_kde6)
+		
+	elseif(${HAS_KDE5})
+	
+		add_subdirectory(operating_system-posix/acme_windowing_q5)
+		add_subdirectory(operating_system-posix/acme_windowing_kde5)
+		add_subdirectory(operating_system-posix/innate_ui_q5)
+		add_subdirectory(operating_system-posix/innate_ui_kde5)
+		add_subdirectory(operating_system-posix/windowing_q5)
+		add_subdirectory(operating_system-posix/windowing_kde5)
+		add_subdirectory(operating_system-posix/node_kde5)
+		add_subdirectory(operating_system-openbsd/operating_ambient_kde5)
+		
+	else()
+	
+		message(FATAL_ERROR "what desktop?")
+		
+	endif()
+	
+endif()
 
 add_subdirectory(operating_system-posix/write_text_pango)
 add_subdirectory(operating_system-posix/audio_sndio)
